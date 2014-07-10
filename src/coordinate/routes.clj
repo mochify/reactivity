@@ -101,11 +101,12 @@
   (ANY "/foo" [] (resource :available-media-types ["text/html"]
                            :handle-ok "<html>Hello, everything's good.</html>"))
   (ANY "/foo/:txt" [txt] (fooresource txt))
-  (ANY ["/collection/:id" #".*"] [id] (entry-resource id))
+  (ANY ["/collection/:id" :id #".*"] [id] (entry-resource id))
   (ANY "/collection" [] list-resource)
   (context "/api" []
     (POST "/update/:team" [team] (str team))
-    (GET "/update/:team" [team] (str "<h1>" team "</h1>"))))
+    (GET "/update/:team" [team] (str "<h1>" team "</h1>")))
+  (ANY "*" [] "<h1>404!</h1>"))
 
 ;(def app
 ;  (handler/site app-routes))

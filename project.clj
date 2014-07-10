@@ -15,7 +15,7 @@
                    [org.xerial/sqlite-jdbc "3.7.2"]
                    [com.taoensso/carmine "2.6.2"]
                    [org.clojure/java.jdbc "0.3.3"]
-                   [liberator "0.11.0"]]
+                   [liberator "0.11.1"]]
     :plugins [[lein-ring "0.8.10"]
               [lein-environ "0.5.0"]]
     :ring {:handler coordinate.routes/handler}
