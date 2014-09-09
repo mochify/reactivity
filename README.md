@@ -4,4 +4,4 @@ Coordinate is a new tool to help teams report on individual and collective statu
 
 # What's with the name?
 
-![Whatever](https://bitbucket.org/educolarate/coordinate/raw/master/resources/images/totoro.gif)
+![Whatever](https://github.com/mochify/reactivity/blob/master/resources/images/totoro.gif)
