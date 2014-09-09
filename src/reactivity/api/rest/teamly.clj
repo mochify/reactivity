@@ -1,4 +1,4 @@
-(ns com.coordinate.api.rest.teamly
+(ns com.mochify.api.rest.teamly
   (:use [liberator.core :only [defresource]]))
 
 (defresource update-status

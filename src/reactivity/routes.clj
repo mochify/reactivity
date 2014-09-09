@@ -1,4 +1,4 @@
-(ns coordinate.routes
+(ns reactivity.routes
   (:use ring.middleware.stacktrace)
   (:import [java.net URL])
   (:require [liberator.core :refer [resource defresource]] 
@@ -95,7 +95,7 @@
     :put! #(dosync (alter entries assoc id (::data %)))
     :new? (fn [_] (nil? (get @entries id ::sentinel))))
 
-(defroutes coordinate-app
+(defroutes reactivity-app
   (ANY "/" [] (resource))
   (ANY "/babel" [] (babelresource))
   (ANY "/foo" [] (resource :available-media-types ["text/html"]
@@ -112,7 +112,7 @@
 ;  (handler/site app-routes))
 
 (def handler
-  (-> coordinate-app (wrap-params)))
+  (-> reactivity-app (wrap-params)))
 
 (run-jetty #'handler {:port 3000})
 
