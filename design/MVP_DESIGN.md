@@ -28,8 +28,45 @@ It's very important to understand what Reactivity _isn't_:
 
 ## Design Goals
 
+* quick access dashboards
 * team-based status channels
+* simplicity
 * Immediate data presentation - looking at a channel should allow you to grok your team's situation immediately (what people are doing, or are blocked by).
+
+## Technical Details
+
+Reactivity's basic tech stack is as follows:
+
+* react.js/HTML5/CSS3 - the standard front-end stuff
+* Clojure (and/or Scala) on Java 8 - The JVM is mochify's semi-official platform for web services
+  * compojure will serve as the routing library (or Scalatra)
+  * liberator will expose the endpoints as RESTful resources
+  * friend will provide authentication and authorization
+* Databases
+  * PostgreSQL - will store all persistent data, like `users` and `statuses`
+  * Redis - intermediate caching layer
+  * Others? Maybe.
+
+## Database Model
+
+Reactivity has the following dimensions:
+
+* Users - an actor, a person, someone that posts messages and statuses
+* Channels - A collection of statuses
+* Statuses - like a tweet, these are associated with a channel, and are created by users
+* Comments - A message attached to a specific status in a channel. These are much simpler than full-fledged comment systems
+
+## API Model
+
+Like a good web app, RESTful is there.
+
+* `api/users` - Look up a user
+* `api/comments` - Look up comments
+  * Given the nature of comments, this endpoint will probably sup
+* `api/statuses`
+* `api/channels`
+
+
 
 ## Example Use Case
 
