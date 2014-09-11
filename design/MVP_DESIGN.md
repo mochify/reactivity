@@ -56,22 +56,23 @@ Reactivity has the following dimensions:
 * Statuses - like a tweet, these are associated with a channel, and are created by users
 * Comments - A message attached to a specific status in a channel. These are much simpler than full-fledged comment systems
 
+![Database schema](https://github.com/mochify/reactivity/blob/master/resources/models/mvp_schema.png)
+
+
 ## API Model
 
 Like a good web app, RESTful is there.
 
 * `api/users` - Look up a user
 * `api/comments` - Look up comments
-  * Given the nature of comments, this endpoint will probably sup
 * `api/statuses`
 * `api/channels`
-
 
 
 ## Example Use Case
 
 Scenario:
 
-1. mochify has three team members (alexkuang, birryree, himekat) and a stream called `mochify`.
+1. mochify has three team members (alexkuang, birryree, himekat) and a channel called `mochify`.
 2. At the top of the morning, it's status update time.
 3. alexkuang opens the reactivity app and types in a status that goes to the mochify stream
