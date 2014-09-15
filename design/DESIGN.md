@@ -1,12 +1,12 @@
-# COORDINATE: Design
+# REACTIVITY: Design
 
-## Goal of Coordinate?
+## Goal of Reactivity?
 
-Coordinate is supposed to be a stream-based communication system for sharing status and information between groups and teams. It is aimed at facilitating team-based communication (like with developers) and hopefully to replace things like status meetings, quick emails, and certain types of instant messaging.
+Reactivity is supposed to be a stream-based communication system for sharing status and information between groups and teams. It is aimed at facilitating team-based communication (like with developers) and hopefully to replace things like status meetings, quick emails, and certain types of instant messaging.
 
 ## Nitty-gritty?
 
-Right now I'm imagining multiple types of resources in Coordinate:
+Right now I'm imagining multiple types of resources in Reactivity:
 
 * Individuals - A collaborator
 * Teams / Groups - A unit comprised of 0 or more Individuals
@@ -22,9 +22,9 @@ Right now I'm imagining multiple types of resources in Coordinate:
 
  For example, let's say Alice, Bob, and Eve work on the same team. Alice and Bob are developers, and Eve is a project manager. They typically run a morning standup meeting to give their updates.
 
- In the Coordinate world, the standup meeting is a time sink that can be done away with and replaced with Coordinate Streams.
+ In the Reactivity world, the standup meeting is a time sink that can be done away with and replaced with Reactivity Streams.
 
-### Example Coordinate Usage
+### Example Reactivity Usage
 
 Project Team Stream - Alice, Bob, Eve are team members. Jim is another member of the organization who is outside of the team. The following could be messages sent from each person.
 
@@ -33,7 +33,7 @@ Alice - WORKING on tickets ISSUE-01, ISSUE-02, ISSUE-03
 Bob - WAITING on requirements from @Jim.
 Eve - WORKING on documentation.
 
-Coordinate's stream would set statuses like so:
+Reactivity's stream would set statuses like so:
 
 * Alice is working on tickets ISSUE-01, ISSUE-02
 * Alice is blocked by @Bob on ISSUE-03
