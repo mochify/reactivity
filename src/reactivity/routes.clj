@@ -11,30 +11,13 @@
             [clojure.java.io :as io]
             [clojure.data.json :as json]))
 
+(defresource users []
+  :available-media-types ["text/json"]
+  :handle-not-acceptable "Invalid media type")
+
 (defresource fooresource [txt]
   :available-media-types ["text/plain"]
   :handle-ok (fn [_] (format "The text is %s" txt)))
-
-(defresource babelresource []
-  :available-media-types ["text/plain", "text/html",
-                          "application/json", "application/clojure"]
-  :handle-ok
-    #(let [media-type (get-in % [:representation :media-type])]
-       (condp = media-type
-         "text/plain" "You wanted plain"
-         "text/html" "<html><h1>You asked for html?</h1></html>"
-         {:message "You requested media type" :media-type media-type}))
-  :handle-not-acceptable "Invalid media type")
-
-(defonce entries (ref {}))
-
-(defn build-entry-url [request id]
-  (URL. (format "%s://%s:%s%s/%s"
-                (name (:scheme request))
-                (:server-name request)
-                (:server-port request)
-                (:uri request)
-                (str id))))
 
 ;; convert the body to a reader. Useful for testing in the repl
 ;; where setting the body to a string is much simpler.
@@ -97,7 +80,7 @@
 
 (defroutes reactivity-app
   (ANY "/" [] (resource))
-  (ANY "/babel" [] (babelresource))
+  (ANY "/users" [] (userresource))
   (ANY "/foo" [] (resource :available-media-types ["text/html"]
                            :handle-ok "<html>Hello, everything's good.</html>"))
   (ANY "/foo/:txt" [txt] (fooresource txt))
@@ -113,6 +96,5 @@
 
 (def handler
   (-> reactivity-app (wrap-params)))
-
 (run-jetty #'handler {:port 3000})
 
