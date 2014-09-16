@@ -20,7 +20,7 @@ Reactivity aims to fix those problems by providing a tool that can be adapted to
 
 It's very important to understand what Reactivity _isn't_:
 
-* A replacement for conversations/emails/instant messaging - While it is an asynchronous communication tool, Reactivity aims more for _smarter_ communication between team members, management, and other teams. Various other communication channels may be used to accomplish that.
+* **A replacement for conversations/emails/instant messaging** - While it is an asynchronous communication tool, Reactivity aims more for _smarter_ communication between team members, management, and other teams. Various other communication channels may be used to accomplish that.
 
 * **Highly Opinionated** - Reactivity doesn't and shouldn't strive to impose any particular process on the end users. Communication style is particular to each team, and tools that prove cumbersome are just as useless as unnecessary meetings.
 
@@ -39,12 +39,14 @@ Reactivity's basic tech stack is as follows:
 
 * react.js/HTML5/CSS3 - the standard front-end stuff
 * Clojure (and/or Scala) on Java 8 - The JVM is mochify's semi-official platform for web services
-  * compojure will serve as the routing library (or Scalatra)
-  * liberator will expose the endpoints as RESTful resources
-  * friend will provide authentication and authorization
+  * `compojure` will serve as the routing library (or Scalatra)
+  * `liberator` will expose the endpoints as RESTful resources
+  * `friend` will provide authentication and authorization
+  * `yesql` will provide the SQL functionality (it is *not* an abstraction layer)
+  * `carmine` will provide the Redis interaction
 * Databases
   * PostgreSQL - will store all persistent data, like `users` and `statuses`
-  * Redis - intermediate caching layer
+  * Redis - intermediate caching layer and session store
   * Others? Maybe.
 
 ## Database Model
@@ -58,6 +60,8 @@ Reactivity has the following dimensions:
 
 ![Database schema](https://github.com/mochify/reactivity/blob/master/resources/models/mvp_schema.png)
 
+## Software Model
+
 
 ## API Model
 
@@ -67,6 +71,8 @@ Like a good web app, RESTful is there.
 * `api/comments` - Look up comments
 * `api/statuses`
 * `api/channels`
+
+
 
 
 ## Example Use Case
