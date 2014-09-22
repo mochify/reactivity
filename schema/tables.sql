@@ -56,7 +56,7 @@ create table if not exists channel_status_map (
 create table if not exists person_organization_map (
   constraint person_organization_id PRIMARY KEY (person_id, organization_id),
   organization_id bigint references organization (organization_id) on update cascade,
-  person_id bigint references person person_id) on update cascade,
+  person_id bigint references person (person_id) on update cascade
 );
 
 --name: create-organization-channel-junction!
