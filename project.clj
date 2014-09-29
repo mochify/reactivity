@@ -16,11 +16,12 @@
                    [com.taoensso/carmine "2.7.0" :exclusions [org.clojure/clojure]]
                    [yesql               "0.4.0"]
                    [crypto-password     "0.1.3"]
+                   [slingshot           "0.11.0"]
                    [org.postgresql/postgresql "9.3-1102-jdbc41"]
                    [liberator           "0.12.1"]]
     :plugins [[lein-ring "0.8.11"]
               [lein-environ "1.0.0"]]
-    :ring {:handler reactivity.routes/reactivity-routes}
+    :ring {:handler reactivity.routes/app}
     :profiles
         {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                              [ring-mock "0.1.5"]
